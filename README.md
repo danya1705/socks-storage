@@ -25,4 +25,4 @@ Java, Spring boot, PosgreSQL, Liquibase, Docker
 
 ## Схема базы данных
 
-![Схема базы данных](https://github.com/danya1705/socks_storage/socks_db.png)
+![Схема базы данных](https://github.com/danya1705/socks-storage/blob/master/socks_db.png)
