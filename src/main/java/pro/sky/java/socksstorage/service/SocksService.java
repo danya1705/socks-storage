@@ -46,6 +46,13 @@ public class SocksService {
         if (socksInStorage.isEmpty() || socksInStorage.get().getQuantity() < socks.getQuantity()) {
             log.warn("Not enough quantity for outcome");
             return Optional.empty();
+        } else if (socksInStorage.get().getQuantity() == socks.getQuantity()) {
+            Socks deletedSocks = new Socks();
+            deletedSocks.setId(socksInStorage.get().getId());
+            deletedSocks.setColor(socks.getColor());
+            deletedSocks.setCottonPart(socks.getCottonPart());
+            socksRepository.delete(socksInStorage.get());
+            return Optional.of(deletedSocks);
         } else {
             socks.setId(socksInStorage.get().getId());
             socks.setQuantity(socksInStorage.get().getQuantity() - socks.getQuantity());
